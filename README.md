@@ -1,51 +1,75 @@
 # VoxScribe – AutoEIT Transcription Pipeline
 
-This repository contains my evaluation test implementation for the HumanAI GSoC 2026 AutoEIT project.
+This repository contains my evaluation test implementation for the **HumanAI GSoC 2026 AutoEIT project**.
 
-## Goal
+## Objective
 
-Develop a pipeline to transcribe Spanish Elicited Imitation Task (EIT) recordings using automatic speech recognition.
+The goal of this project is to develop a pipeline that converts audio recordings from Spanish Elicited Imitation Tasks (EIT) into usable text transcriptions for linguistic analysis.
 
-The goal is to produce accurate transcripts while preserving learner disfluencies and grammatical errors.
+Non-native learner speech presents challenges for automatic speech recognition systems because of:
+
+* varying accents
+* disfluencies
+* phonological transfer
+* incomplete sentence reproduction
+
+This implementation demonstrates a baseline transcription pipeline using **OpenAI Whisper**.
 
 ## Approach
 
-The pipeline uses Whisper ASR to process Spanish learner speech recordings.
+The system performs the following steps:
 
-Steps:
-
-1. Load audio files
-2. Run Whisper transcription
-3. Preserve learner speech patterns
-4. Store transcripts in structured format
+1. Load audio recordings from the dataset.
+2. Use Whisper ASR to transcribe Spanish learner speech.
+3. Store generated transcriptions in a structured CSV file.
+4. Prepare outputs suitable for linguistic analysis and scoring.
 
 ## Repository Structure
 
-voxscribe-autoEIT  
-│  
-├── data  
-├── notebooks  
-│ └── transcription_analysis.ipynb  
-├── README.md  
-├── requirements.txt  
-└── .gitignore  
+```
+voxscribe-autoEIT
+│
+├── data
+│   └── sample EIT audio recordings
+│
+├── notebooks
+│   └── transcription_analysis.ipynb
+│
+├── results
+│   └── transcriptions.csv
+│
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
 
 ## Tools Used
 
-- Python
-- Whisper ASR
-- Pandas
-- Jupyter Notebook
+* Python
+* OpenAI Whisper
+* Pandas
+* Librosa
+* Jupyter / Google Colab
 
-## Challenges
+## Output
 
-- Non-native pronunciation variation
-- Disfluencies and hesitations
-- Partial sentence repetition
-- Accent variability
+The pipeline produces a CSV file containing:
 
-## Future Work
+* audio filename
+* generated transcription
 
-- Improve ASR accuracy for learner speech
-- Automatic EIT scoring
-- Error pattern detection
+These outputs can be used for downstream **automatic scoring or linguistic evaluation**.
+
+## Future Improvements
+
+Potential improvements include:
+
+* fine-tuning ASR models on learner speech
+* noise reduction and preprocessing
+* post-processing to correct predictable learner transcription errors
+* integration with automated scoring systems
+
+## Author
+
+Khushi Sawalkar
+B.Tech Electronics & Telecommunications Engineering
