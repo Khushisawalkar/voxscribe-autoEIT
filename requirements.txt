@@ -1,0 +1,6 @@
+openai-whisper
+pandas
+numpy
+librosa
+jiwer
+torch
