@@ -1,55 +1,88 @@
-# VoxScribe — AutoEIT Speech Transcription Pipeline
+# 🎙️ VoxScribe — AutoEIT Learner Speech Transcription Pipeline
 
-Evaluation submission for the **HumanAI Google Summer of Code 2026 – AutoEIT Project**.
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge)
+![Machine Learning](https://img.shields.io/badge/MachineLearning-ASR-green?style=for-the-badge)
+![Whisper](https://img.shields.io/badge/Model-OpenAI%20Whisper-orange?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
-This repository implements a speech-to-text pipeline for **Spanish Elicited Imitation Task (EIT)** recordings using OpenAI Whisper.
+Evaluation submission for **HumanAI – Google Summer of Code 2026**
 
-The goal is to automatically transcribe learner speech data to support linguistic analysis and automated scoring of language proficiency.
-
----
-
-## Motivation
-
-The **Elicited Imitation Task (EIT)** is widely used in second-language research to measure global language proficiency.
-
-However, transcription of learner responses is typically done manually, which is:
-
-* time-consuming
-* expensive
-* prone to human inconsistency
-
-This project explores the use of **automatic speech recognition (ASR)** to generate transcriptions that can accelerate linguistic analysis.
-
-Learner speech presents additional challenges:
-
-* pronunciation variation
-* grammatical deviations
-* hesitations and pauses
-* partial sentence reproduction
+**Project:** AutoEIT
+**Focus:** Automatic transcription of learner speech recordings.
 
 ---
 
-## Project Pipeline
+# 🌍 Project Motivation
 
-Audio Files
-↓
-Preprocessing
-↓
+The **Elicited Imitation Task (EIT)** is widely used in second-language research to evaluate global language proficiency.
+
+Participants listen to sentences and attempt to reproduce them.
+These recordings contain valuable linguistic information but require **manual transcription**, which is:
+
+⚠️ Time-consuming
+⚠️ Difficult to scale
+⚠️ Expensive for large datasets
+
+This project explores how **modern speech recognition models** can assist researchers by automatically generating transcriptions of learner speech.
+
+---
+
+# 🧠 Key Challenge
+
+Learner speech is significantly harder for automatic systems than native speech.
+
+Common challenges include:
+
+• pronunciation variation
+• grammatical deviations
+• hesitations and pauses
+• partial sentence reproduction
+
+Handling these issues is essential for reliable automatic transcription.
+
+---
+
+# ⚙️ System Pipeline
+
+```text
+Audio Recordings
+       ↓
+Audio Processing
+       ↓
 Whisper Speech Recognition
-↓
+       ↓
 Transcription Extraction
-↓
-Structured CSV Output
+       ↓
+Structured CSV Dataset
+```
+
+The resulting dataset can support:
+
+✔ linguistic research
+✔ automated scoring systems
+✔ large-scale learner speech analysis
 
 ---
 
-## Repository Structure
+# 🛠️ Technologies Used
+
+| Tool            | Purpose                     |
+| --------------- | --------------------------- |
+| Python          | Core programming language   |
+| OpenAI Whisper  | Speech recognition          |
+| Pandas          | Data processing             |
+| Librosa         | Audio handling              |
+| Jupyter / Colab | Experimentation environment |
+
+---
+
+# 📁 Repository Structure
 
 ```
 voxscribe-autoEIT
 │
 ├── data
-│   └── sample EIT recordings
+│   └── sample EIT audio recordings
 │
 ├── notebooks
 │   └── autoEIT_transcription_pipeline.ipynb
@@ -71,60 +104,103 @@ voxscribe-autoEIT
 
 ---
 
-## Technologies Used
+# 📊 Example Output
 
-* Python
-* OpenAI Whisper
-* Pandas
-* NumPy
-* Librosa
-* Jupyter / Google Colab
+| Audio File        | Predicted Transcription             |
+| ----------------- | ----------------------------------- |
+| 038010_EIT-2A.mp3 | la niña fue al mercado con su madre |
+| 038011_EIT-1A.mp3 | el hombre caminó por el parque      |
 
----
-
-## Output
-
-The pipeline generates a CSV file containing:
-
-* audio file name
-* generated transcription
-* model metadata
-
-These outputs can be used for:
-
-* linguistic analysis
-* automated scoring of EIT responses
-* evaluation of speech recognition accuracy
+The generated CSV file can be used for **further analysis or automated scoring**.
 
 ---
 
-## Evaluation
+# 📈 Evaluation Approach
 
-Word Error Rate (WER) is used to estimate transcription quality by comparing predicted text with reference sentences.
+Transcription quality can be measured using **Word Error Rate (WER)**.
+
+WER measures differences between predicted and reference sentences by counting:
+
+• insertions
+• deletions
+• substitutions
+
+Lower values indicate more accurate transcriptions.
 
 ---
 
-## Author
+# 🔎 Observations
+
+Initial experiments show that Whisper can produce useful baseline transcriptions for learner speech.
+
+However, some errors occur due to:
+
+• pronunciation differences
+• sentence truncation
+• speech disfluencies
+
+These observations highlight opportunities for **future research improvements**.
+
+---
+
+# 🚀 Future Work
+
+Possible extensions of this work include:
+
+• fine-tuning ASR models on learner speech datasets
+• automated scoring of EIT responses
+• phonetic error correction pipelines
+• large-scale learner speech transcription systems
+
+These directions could significantly improve transcription quality and usability.
+
+---
+
+# 🔁 Reproducibility
+
+To reproduce the transcription pipeline:
+
+### Install dependencies
+
+```
+pip install -r requirements.txt
+```
+
+### Run the pipeline
+
+```
+python src/transcription_pipeline.py
+```
+
+Results will be generated inside the **results/** folder.
+
+---
+
+# 👩‍💻 Author
 
 **Khushi Sawalkar**
 
-B.Tech Electronics & Telecommunications Engineering
+B.Tech — Electronics & Telecommunications Engineering
 Minor in Information Technology
 
-Technical Interests:
+Technical interests:
 
-* Machine Learning
-* Signal Processing
-* Embedded Systems
-* Data Analysis
+• Machine Learning
+• Signal Processing
+• Data Analysis
+• Embedded Systems
 
 Projects:
 
-* Arduino MP3 Player
-* Occupancy Dependent Power Conservation System
+• Arduino MP3 Player
+• Occupancy-Dependent Domestic Power Conservation System
 
 ---
 
-## License
+# 📜 License
 
-This project is released under the MIT License.
+This project is released under the **MIT License**.
+
+---
+
+⭐ If you find this repository useful for learner-speech research, feel free to explore and build upon it.
