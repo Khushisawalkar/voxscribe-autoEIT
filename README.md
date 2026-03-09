@@ -1,28 +1,47 @@
-# VoxScribe – AutoEIT Transcription Pipeline
+# VoxScribe — AutoEIT Speech Transcription Pipeline
 
-This repository contains my evaluation test implementation for the **HumanAI GSoC 2026 AutoEIT project**.
+Evaluation submission for the **HumanAI Google Summer of Code 2026 – AutoEIT Project**.
 
-## Objective
+This repository implements a speech-to-text pipeline for **Spanish Elicited Imitation Task (EIT)** recordings using OpenAI Whisper.
 
-The goal of this project is to develop a pipeline that converts audio recordings from Spanish Elicited Imitation Tasks (EIT) into usable text transcriptions for linguistic analysis.
+The goal is to automatically transcribe learner speech data to support linguistic analysis and automated scoring of language proficiency.
 
-Non-native learner speech presents challenges for automatic speech recognition systems because of:
+---
 
-* varying accents
-* disfluencies
-* phonological transfer
-* incomplete sentence reproduction
+## Motivation
 
-This implementation demonstrates a baseline transcription pipeline using **OpenAI Whisper**.
+The **Elicited Imitation Task (EIT)** is widely used in second-language research to measure global language proficiency.
 
-## Approach
+However, transcription of learner responses is typically done manually, which is:
 
-The system performs the following steps:
+* time-consuming
+* expensive
+* prone to human inconsistency
 
-1. Load audio recordings from the dataset.
-2. Use Whisper ASR to transcribe Spanish learner speech.
-3. Store generated transcriptions in a structured CSV file.
-4. Prepare outputs suitable for linguistic analysis and scoring.
+This project explores the use of **automatic speech recognition (ASR)** to generate transcriptions that can accelerate linguistic analysis.
+
+Learner speech presents additional challenges:
+
+* pronunciation variation
+* grammatical deviations
+* hesitations and pauses
+* partial sentence reproduction
+
+---
+
+## Project Pipeline
+
+Audio Files
+↓
+Preprocessing
+↓
+Whisper Speech Recognition
+↓
+Transcription Extraction
+↓
+Structured CSV Output
+
+---
 
 ## Repository Structure
 
@@ -30,46 +49,82 @@ The system performs the following steps:
 voxscribe-autoEIT
 │
 ├── data
-│   └── sample EIT audio recordings
+│   └── sample EIT recordings
 │
 ├── notebooks
-│   └── transcription_analysis.ipynb
+│   └── autoEIT_transcription_pipeline.ipynb
 │
 ├── results
 │   └── transcriptions.csv
 │
+├── src
+│   ├── transcription_pipeline.py
+│   └── evaluation.py
+│
+├── docs
+│   └── pipeline.png
+│
 ├── README.md
 ├── requirements.txt
-└── .gitignore
+└── LICENSE
 ```
 
-## Tools Used
+---
+
+## Technologies Used
 
 * Python
 * OpenAI Whisper
 * Pandas
+* NumPy
 * Librosa
 * Jupyter / Google Colab
 
+---
+
 ## Output
 
-The pipeline produces a CSV file containing:
+The pipeline generates a CSV file containing:
 
-* audio filename
+* audio file name
 * generated transcription
+* model metadata
 
-These outputs can be used for downstream **automatic scoring or linguistic evaluation**.
+These outputs can be used for:
 
-## Future Improvements
+* linguistic analysis
+* automated scoring of EIT responses
+* evaluation of speech recognition accuracy
 
-Potential improvements include:
+---
 
-* fine-tuning ASR models on learner speech
-* noise reduction and preprocessing
-* post-processing to correct predictable learner transcription errors
-* integration with automated scoring systems
+## Evaluation
+
+Word Error Rate (WER) is used to estimate transcription quality by comparing predicted text with reference sentences.
+
+---
 
 ## Author
 
-Khushi Sawalkar
+**Khushi Sawalkar**
+
 B.Tech Electronics & Telecommunications Engineering
+Minor in Information Technology
+
+Technical Interests:
+
+* Machine Learning
+* Signal Processing
+* Embedded Systems
+* Data Analysis
+
+Projects:
+
+* Arduino MP3 Player
+* Occupancy Dependent Power Conservation System
+
+---
+
+## License
+
+This project is released under the MIT License.
