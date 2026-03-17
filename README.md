@@ -178,20 +178,18 @@ Results will be generated inside the **results/** folder.
 
 # 👩‍💻 Author
 
-**Khushi Sawalkar**
+- Khushi Sawalkar
 
 B.Tech — Electronics & Telecommunications Engineering
 Minor in Information Technology
 
 Technical interests:
-
 • Machine Learning
 • Signal Processing
 • Data Analysis
 • Embedded Systems
 
 Projects:
-
 • Arduino MP3 Player
 • Occupancy-Dependent Domestic Power Conservation System
 
