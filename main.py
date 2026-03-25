@@ -8,7 +8,7 @@ from src.database import init_db, save_run
 
 
 def main(audio_path):
-    # ✅ Initialize database
+    # 🔥 Ensure DB exists
     init_db()
 
     print("Splitting audio...")
@@ -31,7 +31,7 @@ def main(audio_path):
     print("\nFinal Output:")
     print(cleaned)
 
-    # 🔥 EIT evaluation
+    # 🔥 EIT Evaluation
     reference_sentences = [
         "we drove to the park",
         "i will call her tomorrow night",
@@ -44,14 +44,13 @@ def main(audio_path):
     for r in results:
         print(r)
 
-    # ✅ FIX ACCURACY CALCULATION
     avg_wer = sum([r[1] for r in results]) / len(results)
     accuracy = 1 - avg_wer
 
     print(f"\nAccuracy: {accuracy}")
 
-    # ✅ SAVE RUN TO DATABASE
-    save_run(audio_path, full_text, cleaned, accuracy)
+    # 🔥 Save to DB
+    save_run(audio_path, accuracy, full_text, cleaned)
 
 
 if __name__ == "__main__":
