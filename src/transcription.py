@@ -1,12 +1,15 @@
 import whisper
 
-def load_model(model_size="base"):
-    return whisper.load_model(model_size)
+model = whisper.load_model("base")
 
-def transcribe_audio(model, file_path):
+
+def transcribe_audio(audio_path):
     result = model.transcribe(
-        file_path,
-        language="en",   # 🔥 force English
-        task="transcribe"
+        audio_path,
+        fp16=False,
+        language="en",
+        temperature=0.2,       # 🔥 more stable output
+        beam_size=5            # 🔥 better decoding
     )
+
     return result["text"]

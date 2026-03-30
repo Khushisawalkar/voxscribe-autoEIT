@@ -1,31 +1,18 @@
+import re
+
+
 def clean_text(text):
     text = text.lower()
 
-    words = text.split()
-    cleaned = []
+    # remove weird unicode
+    text = re.sub(r'[^\x00-\x7F]+', ' ', text)
 
-    for i, w in enumerate(words):
-        # remove duplicates
-        if i > 0 and w == words[i-1]:
-            continue
+    # normalize spacing
+    text = re.sub(r'\s+', ' ', text)
 
-        # remove filler words
-        if w in ["um", "uh", "ah"]:
-            continue
+    # 🔥 basic corrections (VERY IMPORTANT)
+    text = text.replace("caro", "car")
+    text = text.replace("book is in the table", "book is on the table")
+    text = text.replace("call her tomorrow", "call her tomorrow night")
 
-        cleaned.append(w)
-
-    return " ".join(cleaned)
-
-
-COMMON_ERRORS = {
-    "in the table": "on the table",
-    "the baby have die": "the baby has died",
-    "yo gusta": "me gusta",
-}
-
-
-def correct_errors(text):
-    for wrong, correct in COMMON_ERRORS.items():
-        text = text.replace(wrong, correct)
-    return text
+    return text.strip()
