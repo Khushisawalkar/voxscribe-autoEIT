@@ -1,91 +1,68 @@
 import os
-import re
+import pandas as pd
 from src.preprocessing import preprocess_audio
+from src.segmentation import segment_audio
 from src.transcription import transcribe_audio
-from src.postprocessing import clean_text
+from src.postprocessing import clean_text, extract_sentences
+from src.evaluation import evaluate_eit
 from src.database import init_db, save_run
 
+AUDIO_DIR = "data/processed"
+RESULTS_DIR = "results"
 
-def process_audio(audio_path):
-    print(f"\n🎧 Processing: {audio_path}")
+def main():
+    init_db()
+    os.makedirs(RESULTS_DIR, exist_ok=True)
 
-    processed_audio = preprocess_audio(audio_path)
+    audio_files = [f for f in os.listdir(AUDIO_DIR)
+                   if f.endswith(".wav") or f.endswith(".mp3")]
 
-    print("⚙️ Transcribing audio...")
+    all_rows = []
+    all_scores = {}
 
-    # 🔥 FULL AUDIO (NO CHUNKS)
-    full_text = transcribe_audio(processed_audio)
+    for audio_file in sorted(audio_files):
+        audio_path = os.path.join(AUDIO_DIR, audio_file)
+        name = audio_file.replace(".wav","").replace(".mp3","")
 
-    # Light cleaning only
-    cleaned = clean_text(full_text)
+        print(f"\n{'='*55}")
+        print(f"Processing: {name}")
+        print('='*55)
 
-    # 🔥 REALISTIC SENTENCE SPLIT
-    raw_sentences = re.split(r'[.!?]+', cleaned)
-    sentences = []
+        # Pipeline
+        processed = preprocess_audio(audio_path)
+        chunks = segment_audio(processed)
+        result = transcribe_audio(chunks[0])
+        sentences = extract_sentences(result)
+        cleaned = clean_text(result["text"])
 
-    for s in raw_sentences:
-        s = s.strip()
+        # Evaluate
+        accuracy, rows = evaluate_eit(sentences, participant_id=name)
+        all_rows.extend(rows)
+        all_scores[name] = accuracy
 
-        # keep realistic sentences
-        if len(s) < 5:
-            continue
-        if len(s.split()) < 3:
-            continue
+        # Save
+        save_run(name, accuracy, result["text"], cleaned)
 
-        # remove extreme garbage only
-        if len(s) > 150:
-            continue
+        out_path = os.path.join(RESULTS_DIR, f"{audio_file}_output.txt")
+        with open(out_path, "w", encoding="utf-8") as f:
+            for i, s in enumerate(sentences, 1):
+                f.write(f"{i}. {s}\n")
 
-        sentences.append(s)
+        print(f"Accuracy: {accuracy:.2f}%")
+        print(f"Saved: {out_path}")
 
-    # limit to 30 (test requirement)
-    sentences = sentences[:30]
+    # Save scores CSV
+    df = pd.DataFrame(all_rows)
+    df.to_csv(os.path.join(RESULTS_DIR, "sentence_scores.csv"), index=False)
 
-    print("\n📜 Realistic Transcription:\n")
-    for i, s in enumerate(sentences):
-        print(f"{i+1}. {s}")
-
-    # 🔥 SIMPLE MATCH-BASED EVALUATION
-    reference = [
-        "we drove to the park",
-        "i will call her tomorrow night",
-        "we can buy meat at the butcher shop",
-        "my brother just bought a brand new computer",
-        "sometimes they take their dog for a walk in the park",
-        "we are going to play volleyball",
-        "i want to cut my hair",
-        "the book is on the table"
-    ]
-
-    matches = 0
-
-    for ref in reference:
-        for pred in sentences:
-            if ref.lower() in pred.lower():
-                matches += 1
-                break
-
-    accuracy = matches / len(reference)
-
-    print(f"\n🎯 Accuracy: {accuracy:.2f}")
-
-    save_run(audio_path, accuracy, full_text, cleaned)
-
-    return accuracy
-
+    print(f"\n{'='*55}")
+    print("FINAL RESULTS")
+    print('='*55)
+    for name, score in all_scores.items():
+        print(f"  {name:<25} -> {score:.2f}%")
+    avg = sum(all_scores.values()) / len(all_scores)
+    print(f"  {'AVERAGE':<25} -> {avg:.2f}%")
+    print(f"\nAll results saved to {RESULTS_DIR}/")
 
 if __name__ == "__main__":
-    init_db()
-
-    data_folder = "data"
-    results = []
-
-    for file in os.listdir(data_folder):
-        if file.endswith(".mp3") or file.endswith(".wav"):
-            path = os.path.join(data_folder, file)
-            acc = process_audio(path)
-            results.append((file, acc))
-
-    print("\n🔥 FINAL SUMMARY:")
-    for r in results:
-        print(r)
+    main()

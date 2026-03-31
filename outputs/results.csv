@@ -1,0 +1,3 @@
+Participant,Reference,Prediction,WER,Similarity,Score
+P1,we drove to the park,we drove to the park,0.0,1.0,100.0
+P1,i will call her tomorrow night,i will call her tomorrow night,0.0,1.0,100.0

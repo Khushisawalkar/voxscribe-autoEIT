@@ -1,9 +1,10 @@
 import sqlite3
 
-def init_db():
-    conn = sqlite3.connect("results.db")
-    cursor = conn.cursor()
+DB_PATH = "results.db"
 
+def init_db():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS runs (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -14,19 +15,23 @@ def init_db():
         timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
     )
     """)
-
     conn.commit()
     conn.close()
-
 
 def save_run(filename, accuracy, transcription, cleaned_text):
-    conn = sqlite3.connect("results.db")
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-
     cursor.execute("""
-    INSERT INTO runs (filename, accuracy, transcription, cleaned_text)
-    VALUES (?, ?, ?, ?)
+        INSERT INTO runs (filename, accuracy, transcription, cleaned_text)
+        VALUES (?, ?, ?, ?)
     """, (filename, accuracy, transcription, cleaned_text))
-
     conn.commit()
     conn.close()
+
+def get_all_runs():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM runs ORDER BY timestamp DESC")
+    rows = cursor.fetchall()
+    conn.close()
+    return rows

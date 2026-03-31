@@ -1,18 +1,22 @@
 import re
 
-
 def clean_text(text):
+    """
+    Cleans ASR output.
+    Corrects only ASR errors — preserves learner grammar/vocabulary errors.
+    """
     text = text.lower()
-
-    # remove weird unicode
+    # Remove non-ASCII unicode artifacts
     text = re.sub(r'[^\x00-\x7F]+', ' ', text)
-
-    # normalize spacing
+    # Normalize whitespace
     text = re.sub(r'\s+', ' ', text)
-
-    # 🔥 basic corrections (VERY IMPORTANT)
-    text = text.replace("caro", "car")
-    text = text.replace("book is in the table", "book is on the table")
-    text = text.replace("call her tomorrow", "call her tomorrow night")
-
     return text.strip()
+
+def extract_sentences(result):
+    """Extract clean sentences from Whisper result segments."""
+    sentences = []
+    for seg in result['segments']:
+        text = seg['text'].strip()
+        if text:
+            sentences.append(text)
+    return sentences
