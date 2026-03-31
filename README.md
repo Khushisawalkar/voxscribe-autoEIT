@@ -24,6 +24,6 @@ VoxScribe AutoEdit is a tool designed to simplify audio-to-text conversion and r
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/voxscribe-autoedit.git
+git clone https://github.com/khushisawalkar/voxscribe-autoedit.git
 cd voxscribe-autoedit
 pip install -r requirements.txt
