@@ -1,82 +1,29 @@
-# \# 🎙️ VoxScribe — AutoEIT Pipeline
+# 🎙️ VoxScribe AutoEdit
 
-# \### GSoC 2026 Evaluation Test | HumanAI @ CERN
+VoxScribe AutoEdit is a tool designed to simplify audio-to-text conversion and reduce manual effort in transcription tasks. It focuses not only on generating transcripts but also on making them more structured and usable for real-world applications like content creation, notes, and subtitles.
 
-# \*\*Author:\*\* Khushi Sawalkar
+---
 
-# 
+## 🚀 Features
 
-# \## What This Does
+- Converts audio files into text using AI-based transcription  
+- Segments long audio into manageable parts  
+- Produces cleaner and more readable text output  
+- Helps streamline workflows involving spoken content  
 
-# \- \*\*Test I:\*\* Transcribes Spanish EIT audio files using OpenAI Whisper
+---
 
-# \- \*\*Test II:\*\* Scores learner utterances using WER + fuzzy matching rubric
+## 🛠️ Tech Stack
 
-# 
+- Python  
+- Whisper (speech recognition)  
+- Audio processing libraries  
 
-# \## Project Structure
+---
 
-# ```
+## 📦 Installation
 
-# voxscribe-autoEIT/
-
-# ├── src/
-
-# │   ├── transcription.py    # Whisper ASR
-
-# │   ├── preprocessing.py    # Audio prep
-
-# │   ├── postprocessing.py   # Text cleaning
-
-# │   ├── evaluation.py       # WER + scoring
-
-# │   ├── segmentation.py     # Audio chunking
-
-# │   └── database.py         # SQLite storage
-
-# ├── data/
-
-# │   ├── processed/          # 4 EIT wav files
-
-# │   └── chunks/             # Segmented audio
-
-# ├── results/                # Transcription outputs
-
-# ├── notebooks/              # Jupyter notebook
-
-# ├── app.py                  # Streamlit dashboard
-
-# └── main.py
-
-# ```
-
-# 
-
-# \## Run Locally
-
-# ```bash
-
-# pip install -r requirements.txt
-
-# python main.py
-
-# streamlit run app.py
-
-# ```
-
-# 
-
-# \## Results
-
-# | Participant | Accuracy |
-
-# |-------------|----------|
-
-# | 038010\_EIT-2A | see notebook |
-
-# | 038011\_EIT-1A | see notebook |
-
-# | 038012\_EIT-2A | see notebook |
-
-# | 038015\_EIT-1A | see notebook |
-
+```bash
+git clone https://github.com/yourusername/voxscribe-autoedit.git
+cd voxscribe-autoedit
+pip install -r requirements.txt
