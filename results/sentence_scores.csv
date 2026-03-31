@@ -1,0 +1,57 @@
+Participant,Reference,Learner Utterance,WER,Similarity,Score (%)
+038010_EIT-2A,we drove to the park,El caro lo tiene pelo.,1.0,0.524,15.71
+038010_EIT-2A,i will call her tomorrow night,"En la gran casa, la familia era fomoso.",1.333,0.435,-10.29
+038010_EIT-2A,we can buy meat at the butcher shop,Me gustaría que empezara a ser besa.,1.0,0.479,14.37
+038010_EIT-2A,my brother just bought a brand new computer,Mi hermano ha encontrado un nuevo computador.,1.0,0.523,15.68
+038010_EIT-2A,sometimes they take their dog for a walk in the park,"Sometimes, se sacan su casa para ir a la parte.",1.0,0.505,15.15
+038010_EIT-2A,we are going to play volleyball at the gym that i told you about,Vamos a jugar a volleyball a la casa que yo he estado hablando.,0.929,0.52,20.59
+038010_EIT-2A,i want to cut my hair,Mi hermano ha encontrado un nuevo computador.,1.167,0.394,0.15
+038010_EIT-2A,the book is on the table,El libro está en la mesa.,1.0,0.449,13.47
+038010_EIT-2A,las calles de esta ciudad son muy anchas,Las casas de esta ciudad son muy anches.,0.25,0.9,79.5
+038010_EIT-2A,puede que llueva manana todo el dia,¿Puedes que lleve mañana todo el día?,0.571,0.861,55.83
+038010_EIT-2A,las casas son muy bonitas pero caras,Las casas son muy bonitas pero caras.,0.143,0.986,89.59
+038010_EIT-2A,me gustan las peliculas que acaban bien,Me gustan las películas que acaban bien.,0.286,0.962,78.86
+038010_EIT-2A,despues de cenar me fui a dormir tranquilo,"Después de escenar, me fui a dormir tranquilo.",0.375,0.932,71.7
+038010_EIT-2A,quiero una casa en la que vivan animales,Quiero una casa en la que viven animalais.,0.25,0.927,80.3
+038011_EIT-1A,we drove to the park,,1.0,0.0,0.0
+038011_EIT-1A,i will call her tomorrow night,,1.0,0.0,0.0
+038011_EIT-1A,we can buy meat at the butcher shop,y,1.0,0.056,1.67
+038011_EIT-1A,my brother just bought a brand new computer,y,1.0,0.045,1.36
+038011_EIT-1A,sometimes they take their dog for a walk in the park,y,1.0,0.038,1.13
+038011_EIT-1A,we are going to play volleyball at the gym that i told you about,y,1.0,0.031,0.92
+038011_EIT-1A,i want to cut my hair,y,1.0,0.091,2.73
+038011_EIT-1A,the book is on the table,,1.0,0.0,0.0
+038011_EIT-1A,las calles de esta ciudad son muy anchas,y,1.0,0.049,1.46
+038011_EIT-1A,puede que llueva manana todo el dia,,1.0,0.0,0.0
+038011_EIT-1A,las casas son muy bonitas pero caras,y,1.0,0.054,1.62
+038011_EIT-1A,me gustan las peliculas que acaban bien,,1.0,0.0,0.0
+038011_EIT-1A,despues de cenar me fui a dormir tranquilo,,1.0,0.0,0.0
+038011_EIT-1A,quiero una casa en la que vivan animales,,1.0,0.0,0.0
+038012_EIT-2A,we drove to the park,so start with the stop,0.8,0.476,28.29
+038012_EIT-2A,i will call her tomorrow night,I want to go with my brother,1.0,0.414,12.41
+038012_EIT-2A,we can buy meat at the butcher shop,so start with the stop,0.875,0.526,24.54
+038012_EIT-2A,my brother just bought a brand new computer,can buy me at the busher shop my brother just brought a brand new computer sometimes they take their dog for a walk in the park,2.375,0.506,-81.07
+038012_EIT-2A,sometimes they take their dog for a walk in the park,can buy me at the busher shop my brother just brought a brand new computer sometimes they take their dog for a walk in the park,1.364,0.581,-8.02
+038012_EIT-2A,we are going to play volleyball at the gym that i told you about,we're going to play volleyball at the gym I told you about,0.214,0.934,83.03
+038012_EIT-2A,i want to cut my hair,I want to go with my brother,0.5,0.694,55.82
+038012_EIT-2A,the book is on the table,so start with the stop,0.833,0.435,24.71
+038012_EIT-2A,las calles de esta ciudad son muy anchas,my family I want to go with my family,1.125,0.364,2.16
+038012_EIT-2A,puede que llueva manana todo el dia,we're going to play volleyball at the gym I told you about,1.714,0.366,-39.03
+038012_EIT-2A,las casas son muy bonitas pero caras,I want to go with my brother,1.0,0.406,12.19
+038012_EIT-2A,me gustan las peliculas que acaban bien,we're going to play volleyball at the gym I told you about,1.714,0.351,-39.48
+038012_EIT-2A,despues de cenar me fui a dormir tranquilo,my family I want to go with my family,1.125,0.354,1.88
+038012_EIT-2A,quiero una casa en la que vivan animales,my family I want to go with my family,1.125,0.338,1.38
+038015_EIT-1A,we drove to the park,"Y si no, no me gustan.",1.2,0.381,-2.57
+038015_EIT-1A,i will call her tomorrow night,Las calles de esta ciudad son muy anches.,1.333,0.423,-10.66
+038015_EIT-1A,we can buy meat at the butcher shop,La casa son muy bonitos pero caras.,1.0,0.429,12.86
+038015_EIT-1A,my brother just bought a brand new computer,"Y si no, no me gustan.",1.0,0.369,11.08
+038015_EIT-1A,sometimes they take their dog for a walk in the park,Las calles de esta ciudad son muy anches.,1.0,0.409,12.26
+038015_EIT-1A,we are going to play volleyball at the gym that i told you about,Puede que lleva mañana todo el día.,1.0,0.364,10.91
+038015_EIT-1A,i want to cut my hair,"Y si no, no me gustan.",1.0,0.419,12.56
+038015_EIT-1A,the book is on the table,"Y si no, no me gustan.",1.0,0.435,13.04
+038015_EIT-1A,las calles de esta ciudad son muy anchas,Las calles de esta ciudad son muy anches.,0.125,0.963,90.14
+038015_EIT-1A,puede que llueva manana todo el dia,Puede que lleva mañana todo el día.,0.429,0.914,67.43
+038015_EIT-1A,las casas son muy bonitas pero caras,La casa son muy bonitos pero caras.,0.571,0.93,57.89
+038015_EIT-1A,me gustan las peliculas que acaban bien,Me gusta las películas que acaban bien.,0.429,0.949,68.46
+038015_EIT-1A,despues de cenar me fui a dormir tranquilo,Las calles de esta ciudad son muy anches.,1.0,0.434,13.01
+038015_EIT-1A,quiero una casa en la que vivan animales,Me gusta las películas que acaban bien.,0.875,0.532,24.7

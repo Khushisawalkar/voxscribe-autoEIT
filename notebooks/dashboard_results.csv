@@ -1,0 +1,5 @@
+Participant,Reference,Prediction,WER,Similarity,Score,Error
+038010_EIT-2A,we drove to the park,We drove to the park,0.0,1.0,100.0,0.0
+038010_EIT-2A,i will call her tomorrow night,I'll call her tomorrow night,0.3333333333333333,0.9473684210526316,75.08771929824562,24.912280701754383
+038011_EIT-1A,we drove to the park,Drove to park,0.4,0.7878787878787878,65.63636363636363,34.363636363636374
+038011_EIT-1A,i will call her tomorrow night,Call tomorrow night,0.5,0.7755102040816326,58.265306122448976,41.734693877551024

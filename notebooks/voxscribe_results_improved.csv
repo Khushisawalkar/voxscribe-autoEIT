@@ -1,0 +1,5 @@
+Participant,Reference,Learner Utterance,WER,Similarity,Score (%)
+P1,we drove to the park,We drove to the park,0.0,1.0,100.0
+P1,i will call her tomorrow night,I will call her tomorrow night,0.0,1.0,100.0
+P2,we drove to the park,Drive park,0.8,0.6,32.0
+P2,i will call her tomorrow night,[NO MATCH],1.0,0.0,0.0
