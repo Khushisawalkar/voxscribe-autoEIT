@@ -1,6 +1,6 @@
-🎙️ VoxScribe AutoEdit
+🎙️ Voxscribe AutoEIT: Robust Audio-to-Text Transcription Pipeline for Spanish Elicited Imitation Tasks
 
-VoxScribe AutoEdit is an AI-assisted audio transcription and editing tool designed to convert spoken audio into structured, readable text. Unlike basic transcription tools, this project focuses on improving the usability of generated text through segmentation and light post-processing.
+Voxscribe AutoEIT: Robust Audio-to-Text Transcription Pipeline for Spanish Elicited Imitation Tasks is an AI-assisted audio transcription and editing tool designed to convert spoken audio into structured, readable text. Unlike basic transcription tools, this project focuses on improving the usability of generated text through segmentation and light post-processing.
 
 The goal of this project is to reduce manual effort when working with audio content such as lectures, podcasts, meetings, and voice notes.
 
